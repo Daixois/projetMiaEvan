@@ -1,0 +1,53 @@
+version: "3"
+services:
+  db:
+    image: mysql
+    container_name: memory_mysql
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    networks:
+      - dev
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: memory_phpmyadmin_sandbox
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+    networks:
+      - dev
+
+  maildev:
+    image: maildev/maildev
+    container_name: memory_maildev_sandbox
+    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+    ports:
+      - "8082:80"
+    restart: always
+    networks:
+      - dev
+
+  www:
+    build: php
+    container_name: memory_symfony_sandbox
+    ports:
+      - "8741:80"
+    volumes:
+      - ./php/vhosts:/etc/apache2/sites-enabled
+      - ./:/var/www
+    restart: always
+    networks:
+      - dev
+
+networks:
+  dev:
+
+volumes:
+  db-data:
