@@ -22,7 +22,7 @@ class MemoryController extends AbstractController
 
     // Création du routage pour le memory selon son id
     /**
-     * @Route("/memory{id}", name="memory")
+     * @Route("/memory/{id}", name="memory")
      */
     public function memory(Theme $theme): Response
     {

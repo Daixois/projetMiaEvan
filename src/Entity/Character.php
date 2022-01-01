@@ -6,6 +6,8 @@ use App\Repository\CharacterRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Entity\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CharacterRepository::class)
@@ -28,6 +30,13 @@ class Character
      * @ORM\Column(type="string", length=255)
      */
     private $picture;
+
+     /**
+     * @Vich\UploadableField(mapping="image", fileNameProperty="picture")
+     * @var File
+     */
+    private $imageFile;
+
 
     /**
      * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="characters")
@@ -66,6 +75,19 @@ class Character
         $this->picture = $picture;
 
         return $this;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     /**

@@ -3,14 +3,35 @@
 {% block title %}Hello MemoryController!{% endblock %}
 
 {% block body %}
-<div class="carte"  data-attr="...">
-        <div class="double-face">
-            <div class="face">
-                <img src="...">
-            </div>
-            <div class="arriere">
-                <span>❓</span>
-            </div>
+
+<div class="grille">
+    {%for personnages in theme.characters%}
+
+        <div class="carte"  data-attr="{{personnages.id}}">
+                <div class="double-face">
+                    <div class="face">
+                        <img src="{{vich_uploader_asset(personnages, 'imageFile')}}">
+                    </div>
+            
+                <div class="arriere">
+                        <span>❓</span>
+                </div>
         </div>
-    </div>
+    
+        <div class="carte"  data-attr="{{personnages.id}}">
+                <div class="double-face">
+                    <div class="face">
+                        <img src="{{vich_uploader_asset(personnages, 'imageFile')}}">
+                    </div>
+            
+                <div class="arriere">
+                        <span>❓</span>
+                </div>
+        </div>
+
+    {%endfor%}
+
+     <script src="{{asset('js/app.js')}}"></script>
+     
+</div>
 {% endblock %}
