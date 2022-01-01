@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MemoryController extends AbstractController
 {
     /**
-     * @Route("/memory", name="memory")
+     * @Route("/memory", name="memoryIndex")
      */
     public function index(): Response
     {
@@ -19,5 +19,15 @@ class MemoryController extends AbstractController
         ]);
     }
 
-    
+
+    // Création du routage pour le memory selon son id
+    /**
+     * @Route("/memory{id}", name="memory")
+     */
+    public function memory(Theme $theme): Response
+    {
+        return $this->render('memory/index.html.twig', [
+            'theme' => $theme,
+        ]);
+    }
 }
