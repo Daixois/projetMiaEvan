@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=ThemeRepository::class)
+ * @Vich\Uploadable
  */
 class Theme
 {
@@ -39,13 +40,18 @@ class Theme
 
 
     /**
-     * @ORM\ManyToMany(targetEntity=Character::class, inversedBy="themes")
+     * @ORM\ManyToMany(targetEntity=Perso::class, inversedBy="themes")
      */
-    private $characters;
+    private $persos;
 
     public function __construct()
     {
-        $this->characters = new ArrayCollection();
+        $this->persos = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -92,25 +98,25 @@ class Theme
 
 
     /**
-     * @return Collection|Character[]
+     * @return Collection|Perso[]
      */
-    public function getCharacters(): Collection
+    public function getPersos(): Collection
     {
-        return $this->characters;
+        return $this->persos;
     }
 
-    public function addCharacter(Character $character): self
+    public function addPerso(Perso $perso): self
     {
-        if (!$this->characters->contains($character)) {
-            $this->characters[] = $character;
+        if (!$this->persos->contains($perso)) {
+            $this->persos[] = $perso;
         }
 
         return $this;
     }
 
-    public function removeCharacter(Character $character): self
+    public function removePerso(Perso $perso): self
     {
-        $this->characters->removeElement($character);
+        $this->persos->removeElement($perso);
 
         return $this;
     }

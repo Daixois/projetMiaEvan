@@ -3,18 +3,20 @@
 {% block title %}Hello MemoryController!{% endblock %}
 
 {% block body %}
-
+<div class="container my-4">
 <div class="grille">
-    {%for personnages in theme.characters%}
-
+    
+    {%for personnages in theme.persos%}
+    {% dump personnages %}
         <div class="carte"  data-attr="{{personnages.id}}">
                 <div class="double-face">
                     <div class="face">
                         <img src="{{vich_uploader_asset(personnages, 'imageFile')}}">
                     </div>
-            
-                <div class="arriere">
+                
+                    <div class="arriere">
                         <span>❓</span>
+                    </div>
                 </div>
         </div>
     
@@ -24,8 +26,9 @@
                         <img src="{{vich_uploader_asset(personnages, 'imageFile')}}">
                     </div>
             
-                <div class="arriere">
-                        <span>❓</span>
+                    <div class="arriere">
+                            <span>❓</span>
+                    </div>
                 </div>
         </div>
 

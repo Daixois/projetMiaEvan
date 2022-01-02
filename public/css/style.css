@@ -16,7 +16,7 @@ body {
 .grille {
     background: rgb(185, 147, 214);
     display: grid;
-    grid-template: repeat (3, 200px) / repeat(4, 200px);
+    grid-template: repeat(3, 200px) / repeat(4, 200px);
     width: 800px;
     height: 600px;
     margin: 75px auto 0;

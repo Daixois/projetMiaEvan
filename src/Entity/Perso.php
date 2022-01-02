@@ -2,17 +2,20 @@
 
 namespace App\Entity;
 
-use App\Repository\CharacterRepository;
+use App\Repository\PersoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
 use Vich\UploaderBundle\Entity\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass=CharacterRepository::class)
+ * @ORM\Entity(repositoryClass=PersoRepository::class)
+ * @Table(name="perso")
+ * @Vich\Uploadable
  */
-class Character
+class Perso
 {
     /**
      * @ORM\Id
@@ -39,7 +42,7 @@ class Character
 
 
     /**
-     * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="characters")
+     * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="persos")
      */
     private $themes;
 
@@ -102,7 +105,7 @@ class Character
     {
         if (!$this->themes->contains($theme)) {
             $this->themes[] = $theme;
-            $theme->addCharacter($this);
+            $theme->addPerso($this);
         }
 
         return $this;
@@ -111,7 +114,7 @@ class Character
     public function removeTheme(Theme $theme): self
     {
         if ($this->themes->removeElement($theme)) {
-            $theme->removeCharacter($this);
+            $theme->removePerso($this);
         }
 
         return $this;
