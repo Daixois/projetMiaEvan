@@ -44,6 +44,11 @@ class Theme
      */
     private $persos;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     public function __construct()
     {
         $this->persos = new ArrayCollection();
@@ -117,6 +122,18 @@ class Theme
     public function removePerso(Perso $perso): self
     {
         $this->persos->removeElement($perso);
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

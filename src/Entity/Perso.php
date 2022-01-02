@@ -46,6 +46,11 @@ class Perso
      */
     private $themes;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     public function __construct()
     {
         $this->themes = new ArrayCollection();
@@ -116,6 +121,18 @@ class Perso
         if ($this->themes->removeElement($theme)) {
             $theme->removePerso($this);
         }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -4,59 +4,17 @@
 
 {% block body %}
 <div class="container my-4">
-  
-  <a href="/memory/1"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/Blaze.png')}}" class="card-img-top" alt="Blaze_et_les_monster_machines">
-        <h5 class="card-nom">Blaze et les Monster Machines</h5>
-      </div>
+	
+{% for theme in themes %}
+	{% if theme.persos|length == 6 %}
+			<a href="{{ path('memory', {id : theme.id}) }}" class="card">
+			<div class="card-body" id="home">
+				<img src="{{ vich_uploader_asset(theme, 'imageFile') }}" class="card-img-top" alt="{{theme.name}}">
+				<h5 class="card-nom">{{theme.name}}</h5>
+			</div>
+		{% endif %}
+{% endfor %}
 
-  <a href="/memory/2"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/LaMaisonDeMickey.png')}}" class="card-img-top" alt="La_Maison_de_Mickey">
-        <h5 class="card-nom">La Maison de Mickey</h5>
-      </div>
-
-  <a href="/memory/3"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/Frozen.png')}}" class="card-img-top" alt="La_Reine_des_Neiges">
-        <h5 class="card-nom">La Reine des Neiges</h5>
-      </div>
-
-  <a href="/memory/4"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/LesPrincessesDisney.png')}}" class="card-img-top" alt="Les_Princesses_Disney">
-        <h5 class="card-nom">Les Princesses Disney</h5>
-      </div>
-
-  <a href="/memory/5"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/pawpatrol.png')}}" class="card-img-top" alt="Pat'Patrouille">
-        <h5 class="card-nom">Pat'Patrouille</h5>
-      </div>
-
-  <a href="/memory/6"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/peppapigshow.png')}}" class="card-img-top" alt="PeppaPig">
-        <h5 class="card-nom">Peppa Pig</h5>
-      </div>
-
-  {# En attente d'autres Themes #}
-
-  {# <a href="/memory/4"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/Blaze.png')}}" class="card-img-top" alt="...">
-        <h5 class="card-nom">...</h5>
-      </div>
-  <a href="/memory/5"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/Blaze.png')}}" class="card-img-top" alt="...">
-        <h5 class="card-nom">...</h5>
-      </div>
-  <a href="/memory/6"div class="card">
-      <div class="card-body" id="home">
-        <img src="{{ asset('img/theme/Blaze.png')}}" class="card-img-top" alt="...">
-        <h5 class="card-nom">...</h5>
-      </div> #}
+ 
 
 {% endblock %}

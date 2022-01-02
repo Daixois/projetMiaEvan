@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Theme;
+use App\Repository\ThemeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,12 +11,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class MemoryController extends AbstractController
 {
     /**
-     * @Route("/memory", name="memoryIndex")
+     * @Route("/", name="memoryIndex")
      */
-    public function index(): Response
+    public function index(ThemeRepository $themes): Response
     {
-        return $this->render('memory/index.html.twig', [
-            'controller_name' => 'MemoryController',
+        $allThemes = $themes->findAll();
+
+        return $this->render('home/index.html.twig', [
+            'themes' => $allThemes,
         ]);
     }
 
