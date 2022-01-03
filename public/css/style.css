@@ -119,3 +119,40 @@ span {
   color: white;
   font-size: medium;
 }
+
+/* Formulaire de connexion */
+
+html,
+body {
+    height: 100%;
+}
+
+.input-group {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+
+.btn-login {
+    width: 100%;
+    max-width: 150px;
+    padding: 7px;
+    margin: 0px 38px 0px 0px;
+}
+
+.form-label {
+    padding-right: 20px;
+}
+
+.btn-envoi{
+    padding: 7px;
+    margin: 0% 0% 0% 50%;
+}
+
+.container-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 20% 0% 0% 40%;
+}

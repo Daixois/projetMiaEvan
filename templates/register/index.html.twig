@@ -8,16 +8,18 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="input-group mb-3">
-  <label for="inputPassword4" class="form-label">Nom</label>
-  <input type="text" class="form-control" placeholder="Tape ton nom" aria-label="Username" aria-describedby="basic-addon1">
+<div class="container-input">
+    <div class="input-group mb-3">
+        <label for="inputPassword4" class="form-label"></label>
+        <input type="text" class="form-control" placeholder="Tape ton nom" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <label for="inputPassword4" class="form-label"></label>
+        <input type="password" class="form-control" placeholder="Tape ton mot de passe" id="inputPassword4">
+    </div>
 </div>
 
-<div class="input-group mb-3">
-    <label for="inputPassword4" class="form-label">Mot de passe</label>
-    <input type="password" class="form-control" placeholder="Tape ton mot de passe" id="inputPassword4">
-  
-</div>
+<input class="btn-envoi btn-primary" type="submit" value="Valider">  
 
-<input class="btn btn-primary" type="submit" value="Submit">  
 {% endblock %}
