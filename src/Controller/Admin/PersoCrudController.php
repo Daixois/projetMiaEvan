@@ -7,7 +7,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-// use JetBrains\PhpStorm\Immutable;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PersoCrudController extends AbstractCrudController
