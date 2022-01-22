@@ -47,7 +47,7 @@ class RegisterController extends AbstractController
             // do anything else you need here, like send an email
 
             // Après création du compte, on redirige vers la page de login
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('registration/register.html.twig', [

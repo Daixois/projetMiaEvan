@@ -60,7 +60,8 @@ body {
 }
 
 .face img {
-    width: 120px;
+    max-width: 120px;
+    max-height: 120px;
 }
 
 /* Face arrière de la carte */
@@ -89,6 +90,7 @@ span {
     justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: row;
+    margin-right: 25%;
 }
 
 .card {
@@ -102,6 +104,7 @@ span {
     border-radius: 15%;
     box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.3);
     border: none;
+    
 }
 
 .card:hover {
