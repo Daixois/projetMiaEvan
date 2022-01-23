@@ -13,10 +13,14 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function index(): Response
+    public function index(ThemeRepository $themes): Response
     {
+
+        $allThemes = $themes->findAll();
+        
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'themes' => $allThemes,
         ]);
     }
     /**
