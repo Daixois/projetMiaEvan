@@ -20,7 +20,7 @@ class ThemeCrudController extends AbstractCrudController
     {
         return [
            
-            // AssociationField::new('theme')
+            // AssociationField::new('themes')
             //     ->setRequired(true),
             TextField::new('name'),
             TextField::new('imageFile')

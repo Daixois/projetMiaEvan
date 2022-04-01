@@ -1,3 +1,22 @@
+/* Media queries */
+/* Mobile + */
+@media (min-width: 400px) { /* ... */ }
+
+/* Phablets */
+@media (min-width: 550px) { /* ... */ }
+
+/* Tablettes */
+@media (min-width: 750px) { /* ... */ }
+
+/* Desktop */
+@media (min-width: 1000px) { /* ... */ }
+
+/* Desktop HD */
+@media (min-width: 1200px) { /* ... */ }
+
+/* Desktop Wide */
+@media (min-width: 1400px) { /* ... */ }
+
 *, ::before, ::after {
     box-sizing: border-box;
     margin: 0;

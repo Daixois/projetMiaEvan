@@ -40,7 +40,8 @@ class Theme
 
 
     /**
-     * @ORM\ManyToMany(targetEntity=Perso::class, inversedBy="themes")
+     * @ORM\ManyToMany(targetEntity=Perso::class, inversedBy="themes", )
+     * 
      */
     private $persos;
 

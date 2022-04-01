@@ -22,7 +22,8 @@ class PersoCrudController extends AbstractCrudController
         return [
            
             AssociationField::new('themes')
-                ->setRequired(true),
+                ->setRequired(true)
+                ->setFormTypeOptionifNotSet('by_reference', false),
             TextField::new('name'),
             TextField::new('imageFile')
                 ->setFormType(VichImageType::class)

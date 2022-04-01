@@ -7,7 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
-use Vich\UploaderBundle\Entity\File;
+// use Vich\UploaderBundle\Entity\File;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -43,6 +44,7 @@ class Perso
 
     /**
      * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="persos")
+     * 
      */
     private $themes;
 
