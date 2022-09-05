@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ theme.name}}{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+<div class="grille">
+    
+    {%for personnages in theme.persos%}
+    {# {% dump personnages %} #}
+        <div class="carte"  data-attr="{{personnages.id}}">
+                <div class="double-face">
+                    <div class="face">
+                        <img src="{{vich_uploader_asset(personnages, 'imageFile')}}">
+                    </div>
+                
+                    <div class="arriere">
+                        <span>❓</span>
+                    </div>
+                </div>
+        </div>
+    
+        <div class="carte"  data-attr="{{personnages.id}}">
+                <div class="double-face">
+                    <div class="face">
+                        <img src="{{vich_uploader_asset(personnages, 'imageFile')}}">
+                    </div>
+            
+                    <div class="arriere">
+                            <span>❓</span>
+                    </div>
+                </div>
+        </div>
+
+    {%endfor%}
+
+     <script src="{{asset('js/app.js')}}"></script>
+     
+</div>
+{% endblock %}

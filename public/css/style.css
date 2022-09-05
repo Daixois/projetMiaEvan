@@ -1,0 +1,180 @@
+/* Media queries */
+/* Mobile + */
+@media (min-width: 400px) { /* ... */ }
+
+/* Phablets */
+@media (min-width: 550px) { /* ... */ }
+
+/* Tablettes */
+@media (min-width: 750px) { /* ... */ }
+
+/* Desktop */
+@media (min-width: 1000px) { /* ... */ }
+
+/* Desktop HD */
+@media (min-width: 1200px) { /* ... */ }
+
+/* Desktop Wide */
+@media (min-width: 1400px) { /* ... */ }
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Définition du choix de la police pour le body */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #b993d6, #8ca6db); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/*  création de la grille */
+
+.grille {
+    background: rgb(185, 147, 214);
+    display: grid;
+    grid-template: repeat(3, 200px) / repeat(4, 200px);
+    width: 800px;
+    height: 600px;
+    margin: 75px auto 0;
+}
+
+/* création des cartes */
+
+.carte {
+    background-color: transparent;
+    perspective: 100px;
+    margin: 5px;
+}
+
+.double-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.face, .arriere {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Face avant de la carte */
+
+.face {
+    background: linear-gradient(rgb(22, 14,68), rgb(73,108, 224));
+    border-radius: 15%;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.face img {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+/* Face arrière de la carte */
+
+.arriere {
+    background: linear-gradient(rgb(22, 14,68), rgb(73,108, 224));
+    border-radius: 15%;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.active {
+    transform: rotateY(180deg);
+}
+span {
+    color: yellow;
+}
+
+/* Design des cards */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+
+.card {
+    width: 30%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(rgb(22, 14, 68), rgb(73, 108, 224));
+    border-radius: 15%;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-nom {
+  color: white;
+  font-size: medium;
+}
+
+/* Formulaire de connexion */
+
+html,
+body {
+    height: 100%;
+}
+
+.input-group {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+
+.btn-login {
+    width: 100%;
+    max-width: 150px;
+    padding: 7px;
+    margin: 0px 38px 0px 0px;
+}
+
+.form-label {
+    padding-right: 20px;
+}
+
+.btn-envoi{
+    padding: 7px;
+    margin: 0% 0% 0% 50%;
+}
+
+.container-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 20% 0% 0% 40%;
+}
